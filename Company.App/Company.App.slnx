@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Project Path="src/Company.App.ApiService/Company.App.ApiService.csproj" />
+    <Project Path="src/Company.App.Data/Company.App.Data.csproj" />
+    <Project Path="src/Company.App.Shared/Company.App.Shared.csproj" />
+    <Project Path="src/Company.App.Web/Company.App.Web.csproj" />
+  </Folder>
+</Solution>
