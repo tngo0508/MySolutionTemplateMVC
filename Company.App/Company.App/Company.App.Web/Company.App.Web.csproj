@@ -41,6 +41,9 @@
     <!-- Windows Authentication / Negotiate -->
     <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" />
   </ItemGroup>
+  <ItemGroup>
+    <AdditionalFiles Include="Views\Items\Index.cshtml" />
+  </ItemGroup>
   <!--#endif -->
 
 </Project>
