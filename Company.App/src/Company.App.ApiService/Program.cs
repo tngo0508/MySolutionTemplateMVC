@@ -95,6 +95,47 @@ try
             options.WithTitle($"{AppVersion.ApplicationName} API Reference (v{AppVersion.Current})")
                    .WithTheme(ScalarTheme.Moon);
         });
+
+        // Auto-create database schema and seed initial sample data for local development
+        try
+        {
+            using var scope = app.Services.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            db.Database.EnsureCreated();
+
+            if (!db.Items.Any())
+            {
+                db.Items.AddRange(
+                    new Company.App.Data.Entities.Item
+                    {
+                        Name = "Getting Started with Refit & OpenAPI",
+                        Description = "Explore the type-safe Refit client in Web consuming ApiService endpoints.",
+                        IsCompleted = true,
+                        CreatedAtUtc = DateTime.UtcNow.AddHours(-2)
+                    },
+                    new Company.App.Data.Entities.Item
+                    {
+                        Name = "Configure Authentication Modes",
+                        Description = "Test Individual Identity or Windows Negotiate authentication scheme across services.",
+                        IsCompleted = false,
+                        CreatedAtUtc = DateTime.UtcNow.AddMinutes(-45)
+                    },
+                    new Company.App.Data.Entities.Item
+                    {
+                        Name = "Verify Interactive Scalar UI & Health Checks",
+                        Description = "Access /scalar/v1 and /health endpoints to validate runtime service health.",
+                        IsCompleted = false,
+                        CreatedAtUtc = DateTime.UtcNow.AddMinutes(-15)
+                    }
+                );
+                db.SaveChanges();
+                Log.Information("Database initialized and seeded with sample items.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.Warning(ex, "Could not automatically initialize the database on startup. Verify database connection string.");
+        }
     }
 
     app.UseHttpsRedirection();

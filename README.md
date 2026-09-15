@@ -10,7 +10,7 @@ The solution uses modern .NET features including XML-based Solution format (`.sl
 
 - **Modern Solution Architecture**: Built with `.slnx` solution format and Central Package Management (`Directory.Packages.props`).
 - **Clean Project Separation**:
-  - `src/{Name}.Shared`: Shared contracts, DTOs (`ItemDto`), Refit client interface (`IItemsApi`), and shared constants (`AppVersion`).
+  - `src/{Name}.Shared`: Shared contracts, DTOs (`ItemDto`), Refit client interface (`IItemsApi`), custom exceptions (`ApiException`), and shared constants (`AppVersion`).
   - `src/{Name}.Data`: Entity Framework Core `DbContext`, entities, and connection resiliency with retry policies.
   - `src/{Name}.ApiService`: ASP.NET Core Web API with Scalar interactive API reference UI (`/scalar/v1`), OpenAPI document generator (`/openapi/v1.json`), Serilog logging, health checks (`/health`), and RFC 7807 `ProblemDetails` error handling.
   - `src/{Name}.Web`: ASP.NET Core MVC application consuming the API via Refit with standard resilience policies (jitter retry, circuit breaker, rate limiting) from `Microsoft.Extensions.Http.Resilience`.
@@ -35,6 +35,8 @@ When instantiated, the template generates the following layout:
     │   │   └── IItemsApi.cs
     │   ├── DTOs/
     │   │   └── ItemDto.cs
+    │   ├── Exceptions/
+    │   │   └── ApiException.cs
     │   └── {Name}.Shared.csproj
     ├── {Name}.Data/
     │   ├── Entities/

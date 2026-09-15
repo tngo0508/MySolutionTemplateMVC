@@ -108,6 +108,20 @@ try
 
 #if (IndividualAuth)
     app.MapRazorPages();
+
+    if (app.Environment.IsDevelopment())
+    {
+        try
+        {
+            using var scope = app.Services.CreateScope();
+            var db = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+            db.Database.EnsureCreated();
+        }
+        catch (Exception ex)
+        {
+            Log.Warning(ex, "Could not automatically initialize Identity database on startup. Verify database connection string.");
+        }
+    }
 #endif
 
     app.Run();

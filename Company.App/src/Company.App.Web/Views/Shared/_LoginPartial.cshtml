@@ -1,10 +1,13 @@
 @*#if (IndividualAuth)*@
 @using Microsoft.AspNetCore.Identity
-@inject SignInManager<IdentityUser> SignInManager
-@inject UserManager<IdentityUser> UserManager
+@inject IServiceProvider ServiceProvider
+@{
+    var signInManager = ServiceProvider.GetService<SignInManager<IdentityUser>>();
+    var isSignedIn = signInManager != null && User.Identity?.IsAuthenticated == true;
+}
 
 <ul class="navbar-nav">
-    @if (SignInManager.IsSignedIn(User))
+    @if (isSignedIn)
     {
         <li class="nav-item">
             <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @User.Identity?.Name!</a>
