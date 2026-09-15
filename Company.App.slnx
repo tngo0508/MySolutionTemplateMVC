@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="Company.App.ApiService/Company.App.ApiService.csproj" />
+    <Project Path="Company.App.Data/Company.App.Data.csproj" />
+    <Project Path="Company.App.Shared/Company.App.Shared.csproj" />
+    <Project Path="Company.App.Web/Company.App.Web.csproj" />
+  </Folder>
+</Solution>
