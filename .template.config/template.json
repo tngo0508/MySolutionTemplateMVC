@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "YourName",
+  "classifications": [ "Web", "MVC", "API", "Solution", "EFCore", "Serilog", "Scalar", "Refit", "Authentication" ],
+  "name": "ASP.NET Core MVC & API Solution with EF Core, Serilog, Scalar UI, Refit & Auth Options (.NET 10)",
+  "identity": "CustomTemplates.MvcApiSolution.CSharp",
+  "shortName": "mvc-api",
+  "tags": {
+    "language": "C#",
+    "type": "solution"
+  },
+  "sourceName": "Company.App",
+  "preferNameDirectory": true,
+  "symbols": {
+    "auth": {
+      "type": "parameter",
+      "datatype": "choice",
+      "choices": [
+        {
+          "choice": "None",
+          "description": "No authentication"
+        },
+        {
+          "choice": "Individual",
+          "description": "Individual authentication using ASP.NET Core Identity"
+        },
+        {
+          "choice": "Windows",
+          "description": "Windows Authentication"
+        }
+      ],
+      "defaultValue": "None",
+      "description": "The type of authentication to configure for the solution."
+    },
+    "IndividualAuth": {
+      "type": "computed",
+      "value": "(auth == \"Individual\")"
+    },
+    "WindowsAuth": {
+      "type": "computed",
+      "value": "(auth == \"Windows\")"
+    },
+    "NoAuth": {
+      "type": "computed",
+      "value": "(auth == \"None\")"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/[Bb]in/**",
+            "**/[Oo]bj/**",
+            "**/.vs/**",
+            "**/.idea/**",
+            "**/*.user",
+            "**/*.lock.json",
+            "**/.git/**"
+          ]
+        },
+        {
+          "condition": "(!IndividualAuth)",
+          "exclude": [
+            "**/_LoginPartial.cshtml"
+          ]
+        }
+      ]
+    }
+  ],
+  "primaryOutputs": [
+    {
+      "path": "Company.App.sln"
+    }
+  ]
+}
