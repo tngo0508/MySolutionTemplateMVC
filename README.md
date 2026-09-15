@@ -1,4 +1,4 @@
-# ASP.NET Core MVC & API Solution Template
+# ASP.NET Core MVC and Web API Solution Template
 
 A modern, production-ready .NET solution template featuring an ASP.NET Core MVC front-end, a Web API backend with Scalar OpenAPI documentation, Entity Framework Core data access, Refit HTTP client with resilience handlers, Serilog structured logging, and configurable authentication options.
 
@@ -102,7 +102,7 @@ To verify the template is installed, run:
 dotnet new list --tag solution
 ```
 
-You should see **ASP.NET Core MVC & API Solution with EF Core, Serilog, Scalar UI, Refit & Auth Options (.NET 10)** with short name `mvc-api`.
+You should see **ASP.NET Core MVC and Web API Solution** with short names `mvcapi` and `mvc-api`.
 
 ---
 

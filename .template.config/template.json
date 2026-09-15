@@ -1,10 +1,11 @@
 {
   "$schema": "http://json.schemastore.org/template",
-  "author": "YourName",
+  "author": "Thomas Ngo",
   "classifications": [ "Web", "MVC", "API", "Solution", "EFCore", "Serilog", "Scalar", "Refit", "Authentication" ],
-  "name": "ASP.NET Core MVC & API Solution with EF Core, Serilog, Scalar UI, Refit & Auth Options (.NET 10)",
+  "name": "ASP.NET Core MVC and Web API Solution",
+  "description": "A solution template containing an ASP.NET Core MVC front-end and Web API backend with EF Core, Scalar, Refit, Serilog, and authentication options.",
   "identity": "CustomTemplates.MvcApiSolution.CSharp",
-  "shortName": "mvc-api",
+  "shortName": [ "mvcapi", "mvc-api" ],
   "tags": {
     "language": "C#",
     "type": "solution"
