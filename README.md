@@ -60,7 +60,7 @@ When instantiated, the template generates the following layout:
         │   │   └── Index.cshtml
         │   └── Shared/
         │       ├── _Layout.cshtml
-        │       └── _LoginPartial.cshtml (included with Individual auth)
+        │       └── _LoginPartial.cshtml (included with Individual or Windows auth)
         ├── wwwroot/
         │   ├── css/
         │   ├── js/
@@ -152,16 +152,16 @@ dotnet build MyCompany.App.slnx
 ```bash
 dotnet run --project src/MyCompany.App.ApiService
 ```
-- **Scalar API Reference UI**: Navigate to `https://localhost:<port>/scalar/v1`
-- **OpenAPI Specification**: `https://localhost:<port>/openapi/v1.json`
-- **Health Checks**: `https://localhost:<port>/health`
-- **Version Endpoint**: `https://localhost:<port>/`
+- **Scalar API Reference UI**: Navigate to `https://localhost:7100/scalar/v1`
+- **OpenAPI Specification**: `https://localhost:7100/openapi/v1.json`
+- **Health Checks**: `https://localhost:7100/health`
+- **Version Endpoint**: `https://localhost:7100/`
 
 ### 3. Run MVC Web Application
 ```bash
 dotnet run --project src/MyCompany.App.Web
 ```
-- **Web UI**: Navigate to `https://localhost:<port>`
+- **Web UI**: Navigate to `https://localhost:7200`
 - **Items Management**: Access MVC views consuming `IItemsApi` via Refit.
 
 ---

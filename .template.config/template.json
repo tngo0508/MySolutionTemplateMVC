@@ -61,7 +61,7 @@
           ]
         },
         {
-          "condition": "(!IndividualAuth)",
+          "condition": "(!IndividualAuth && !WindowsAuth)",
           "exclude": [
             "**/_LoginPartial.cshtml"
           ]
