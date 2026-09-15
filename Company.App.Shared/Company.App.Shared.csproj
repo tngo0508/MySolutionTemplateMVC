@@ -2,8 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Refit core attributes for shared interface definitions -->
+    <PackageReference Include="Refit" />
+  </ItemGroup>
 
 </Project>

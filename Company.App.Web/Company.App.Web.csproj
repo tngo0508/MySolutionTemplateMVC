@@ -7,7 +7,40 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!-- Project References -->
     <ProjectReference Include="..\Company.App.Shared\Company.App.Shared.csproj" />
+    <!--#if (IndividualAuth) -->
+    <ProjectReference Include="..\Company.App.Data\Company.App.Data.csproj" />
+    <!--#endif -->
   </ItemGroup>
+
+  <ItemGroup>
+    <!-- Refit HTTP Client with HttpClientFactory integration -->
+    <PackageReference Include="Refit.HttpClientFactory" />
+
+    <!-- HTTP Client Resilience Pipeline (Retries, Circuit Breaker, Rate Limiter) -->
+    <PackageReference Include="Microsoft.Extensions.Http.Resilience" />
+
+    <!-- Serilog Logging -->
+    <PackageReference Include="Serilog.AspNetCore" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.File" />
+
+    <!-- LibMan Client-Side Library Manager Build Tool -->
+    <PackageReference Include="Microsoft.Web.LibraryManager.Build" />
+  </ItemGroup>
+
+  <!--#if (IndividualAuth) -->
+  <ItemGroup>
+    <!-- ASP.NET Core Identity UI -->
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" />
+  </ItemGroup>
+  <!--#elif (WindowsAuth) -->
+  <ItemGroup>
+    <!-- Windows Authentication / Negotiate -->
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Negotiate" />
+  </ItemGroup>
+  <!--#endif -->
 
 </Project>
